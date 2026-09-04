@@ -234,31 +234,31 @@ ssh username@b103wsX.in.cs.ucy.ac.cy
 
 where username is your username (provided by the university) and X is the number of the remote host you want to connect to.
 
-![Adding a new remote SSH connection](media/images/image2.png)
+![Adding a new remote SSH connection](../media/images/image2.png)
 
 Press enter to proceed, and then again enter to save the connection to the ssh config file. The new connection will be made available under SSH. Click on the arrow to initiate the connection to the remote host.
 
-![Selecting the remote SSH connection](media/images/image3.png)
+![Selecting the remote SSH connection](../media/images/image3.png)
 
 When you are asked to choose the operating system of the remote host, select Linux and then enter.
 
-![Selecting Linux as the remote operating system](media/images/image4.png)
+![Selecting Linux as the remote operating system](../media/images/image4.png)
 
 The remote host presents its public key fingerprint and asks if you want to continue. Click "Continue" and the fingerprint is stored in your known_hosts file. Future connections will not ask again unless the remote host key changes.
 
-![Confirming the remote host public key fingerprint](media/images/image5.png)
+![Confirming the remote host public key fingerprint](../media/images/image5.png)
 
 Next, you will be asked to provide your password (given by the university)
 
-![Entering the remote account password](media/images/image6.png)
+![Entering the remote account password](../media/images/image6.png)
 
 In the next figure you can see the VS Code Remote SSH status indicator in the bottom-left corner. This means that VS Code is currently connected to the remote Linux machine b103ws5.in.cs.ucy.ac.cy through SSH.
 
-![Active VS Code Remote SSH connection](media/images/image7.png)
+![Active VS Code Remote SSH connection](../media/images/image7.png)
 
 Finally, you need to go to the Explorer tab and "Open Folder" on the remote host. If you choose to open a folder that does not exist, it will be automatically created.
 
-![Opening a folder on the remote host](media/images/image8.png)
+![Opening a folder on the remote host](../media/images/image8.png)
 
 When you want to disconnect from the remote host, click on the status indicator (bottom left corner) and click on "Close Remote Connection".
 
