@@ -1,375 +1,377 @@
-Ο παρών οδηγός παρουσιάζει τις βασικές καλές πρακτικές για την αποτελεσματική χρήση του GitHub κατά τη διάρκεια των σπουδών σας (και όχι μόνο) στην Πληροφορική. Ακολουθώντας αυτές τις πρακτικές, θα μπορέσετε να διατηρήσετε οργανωμένο το ιστορικό του project σας, να συνεργαστείτε αποδοτικά με τους συμφοιτητές σας σε ομαδικές εργασίες, και να εφαρμόσετε επαγγελματικές μεθόδους ανάπτυξης λογισμικού.
+# GitHub Best Practices
 
-Το GitHub δεν είναι απλά ένα εργαλείο αντιγραφής ασφαλείας, είναι μια πλατφόρμα συνεργασίας που σας επιτρέπει να εργάζεστε αποτελεσματικά ως ομάδα και να παρακολουθείτε την εξέλιξη της εργασίας σας.
+This guide presents the essential best practices for using GitHub effectively during your Computer Science studies and beyond. By following these practices, you will be able to keep your project history organized, collaborate effectively with your fellow students on group assignments, and apply professional software development methods.
 
-## Πίνακας Περιεχομένων
+GitHub is not simply a backup tool; it is a collaboration platform that allows you to work effectively as a team and track the progress of your work.
 
-- [1. Καλές Πρακτικές Commit](#καλές-πρακτικές-commit)
-  - [1.1 Γράψτε Περιγραφικά Commit Messages](#γράψτε-περιγραφικά-commit-messages)
-  - [1.2 Κάντε Commit Συχνά και Λογικά](#κάντε-commit-συχνά-και-λογικά)
-  - [1.3 Ελέγξτε Πριν το Commit](#ελέγξτε-πριν-το-commit)
-  - [1.4 Τι να ΜΗΝ Κάνετε Commit](#τι-να-μην-κάνετε-commit)
-- [2. Στρατηγικές Branching](#στρατηγικές-branching)
-  - [2.1 Κατανοώντας τα Branches](#κατανοώντας-τα-branches)
-  - [2.2 Πότε να Χρησιμοποιήσετε Branches](#πότε-να-χρησιμοποιήσετε-branches)
-  - [2.3 Ονοματολογία Branches](#ονοματολογία-branches)
-  - [2.4 Ροή Εργασίας με Branches](#ροή-εργασίας-με-branches)
-  - [2.5 Διαχείριση και Πρόληψη Merge Conflicts](#διαχείριση-και-πρόληψη-merge-conflicts)
-- [3. Οργάνωση Repository](#οργάνωση-repository)
-  - [3.1 Απαραίτητα Αρχεία](#απαραίτητα-αρχεία)
-  - [3.2 Δημιουργία .gitignore Αρχείων](#δημιουργία-gitignore-αρχείων)
-  - [3.3 Συμβάσεις Ονοματολογίας](#συμβάσεις-ονοματολογίας)
-- [4. Οδηγίες Συνεργασίας](#οδηγίες-συνεργασίας)
-  - [4.1 Επικοινωνία Ομάδας](#επικοινωνία-ομάδας)
-  - [4.2 Κατανομή Εργασίας](#κατανομή-εργασίας)
-  - [4.3 Ο Χρυσός Κανόνας της Συνεργασίας](#ο-χρυσός-κανόνας-της-συνεργασίας)
-- [5. Πρακτικές Code Review](#πρακτικές-code-review)
-  - [5.1 Δημιουργία Pull Requests](#δημιουργία-pull-requests)
-  - [5.2 Review Pull Requests](#review-pull-requests)
-  - [5.3 Απάντηση σε Review Feedback](#απάντηση-σε-review-feedback)
-  - [5.4 Checklist Πριν το Review](#checklist-πριν-το-review)
-- [6. Κριτήρια Αξιολόγησης Χρήσης GitHub](#κριτήρια-αξιολόγησης-χρήσης-github)
-  - [6.1 Γενικές Αρχές](#γενικές-αρχές)
-  - [6.2 Κριτήρια για Ατομικές Εργασίες](#κριτήρια-για-ατομικές-εργασίες)
-  - [6.3 Κριτήρια για Ομαδικές Εργασίες](#κριτήρια-για-ομαδικές-εργασίες)
-  - [6.4 Ενδεικτικά Στοιχεία που Εξετάζονται](#ενδεικτικά-στοιχεία-που-εξετάζονται)
-- [7. Επίλογος](#επίλογος)
+## Table of Contents
 
-# Καλές Πρακτικές Commit
+- [1. Commit Best Practices](#commit-best-practices)
+  - [1.1 Write Descriptive Commit Messages](#write-descriptive-commit-messages)
+  - [1.2 Commit Frequently and Logically](#commit-frequently-and-logically)
+  - [1.3 Review Before Committing](#review-before-committing)
+  - [1.4 What NOT to Commit](#what-not-to-commit)
+- [2. Branching Strategies](#branching-strategies)
+  - [2.1 Understanding Branches](#understanding-branches)
+  - [2.2 When to Use Branches](#when-to-use-branches)
+  - [2.3 Branch Naming](#branch-naming)
+  - [2.4 Branch Workflow](#branch-workflow)
+  - [2.5 Managing and Preventing Merge Conflicts](#managing-and-preventing-merge-conflicts)
+- [3. Repository Organization](#repository-organization)
+  - [3.1 Required Files](#required-files)
+  - [3.2 Creating .gitignore Files](#creating-gitignore-files)
+  - [3.3 Naming Conventions](#naming-conventions)
+- [4. Collaboration Guidelines](#collaboration-guidelines)
+  - [4.1 Team Communication](#team-communication)
+  - [4.2 Work Allocation](#work-allocation)
+  - [4.3 The Golden Rule of Collaboration](#the-golden-rule-of-collaboration)
+- [5. Code Review Practices](#code-review-practices)
+  - [5.1 Creating Pull Requests](#creating-pull-requests)
+  - [5.2 Reviewing Pull Requests](#reviewing-pull-requests)
+  - [5.3 Responding to Review Feedback](#responding-to-review-feedback)
+  - [5.4 Pre-Review Checklist](#pre-review-checklist)
+- [6. GitHub Usage Assessment Criteria](#github-usage-assessment-criteria)
+  - [6.1 General Principles](#general-principles)
+  - [6.2 Criteria for Individual Assignments](#criteria-for-individual-assignments)
+  - [6.3 Criteria for Group Assignments](#criteria-for-group-assignments)
+  - [6.4 Indicative Elements Assessed](#indicative-elements-assessed)
+- [7. Conclusion](#conclusion)
 
-Τα commits αποτελούν τα θεμελιώδη δομικά στοιχεία του ιστορικού του project σας. Καλά δομημένα commits διευκολύνουν την κατανόηση των αλλαγών που έγιναν, πότε έγιναν και γιατί.
+# Commit Best Practices
 
-## Γράψτε Περιγραφικά Commit Messages
+Commits are the fundamental building blocks of your project history. Well-structured commits make it easier to understand what changes were made, when they were made, and why.
 
-**Παραδείγματα καλών commit messages:** Implement binary search tree insertion method, Fix null pointer exception in calculateAverage(), Update README with installation instructions
+## Write Descriptive Commit Messages
 
-**Παραδείγματα κακών commit messages:** fixed stuff, update, asdf, done, changes
+**Examples of good commit messages:** `Implement binary search tree insertion method`, `Fix null pointer exception in calculateAverage()`, `Update README with installation instructions`
 
-Οδηγίες για commit messages:
+**Examples of bad commit messages:** `fixed stuff`, `update`, `asdf`, `done`, `changes`
 
-- Χρησιμοποιήστε προστακτική: Add feature και όχι Added feature
+Guidelines for commit messages:
 
-- Ξεκινήστε με κεφαλαίο γράμμα και μην τελειώνετε με τελεία
+- Use the imperative mood: `Add feature`, not `Added feature`
 
-- Να είστε συγκεκριμένοι για το τι άλλαξε
+- Start with a capital letter and do not end with a period
 
-- Εξηγήστε το «γιατί» για μη προφανείς αλλαγές
+- Be specific about what changed
 
-## Κάντε Commit Συχνά και Λογικά
+- Explain the “why” behind non-obvious changes
 
-Κάντε commit αφού ολοκληρώσετε μία λογική μονάδα εργασίας (μια καινούρια μέθοδο, μια διόρθωση κλπ), χωρίς να περιμένετε μέχρι να συσσωρεύσετε δεκάδες αλλαγές. Αποφύγετε πολύ μικρά ή τεράστια commits με άσχετες αλλαγές. Ένα καλό commit:
+## Commit Frequently and Logically
 
-- Υλοποιεί ένα συγκεκριμένο feature ή διορθώνει ένα συγκεκριμένο bug
+Commit after completing one logical unit of work, such as a new method or a fix, rather than waiting until dozens of changes have accumulated. Avoid very small or very large commits containing unrelated changes. A good commit:
 
-- Αντιπροσωπεύει μία πλήρη, λειτουργική κατάσταση του κώδικα
+- Implements one specific feature or fixes one specific bug
 
-- Περιλαμβάνει μόνο τα σχετικά αρχεία
+- Represents a complete, working state of the code
 
-## Ελέγξτε Πριν το Commit
+- Includes only the relevant files
 
-Πριν κάνετε commit, χρησιμοποιήστε git diff ή το VS Code για να δείτε τι πρόκειται να υποβάλετε. Βεβαιωθείτε ότι έχετε αφαιρέσει τυχόν debug code και commented-out κώδικα, δεν περιλαμβάνετε αρχεία που προσθέσατε κατά λάθος, ο κώδικας μεταγλωττίζεται χωρίς σφάλματα.
+## Review Before Committing
 
-## Τι να ΜΗΝ Κάνετε Commit
+Before committing, use `git diff` or VS Code to see what you are about to submit. Make sure that you have removed any debug code and commented-out code, have not included files you added accidentally, and that the code compiles without errors.
 
-Ποτέ μην κάνετε commit:
+## What NOT to Commit
 
-- Compiled αρχεία (.class, .o, .exe, .jar, .war)
+Never commit:
 
-- Build directories (target/, bin/, build/)
+- Compiled files (`.class`, `.o`, `.exe`, `.jar`, `.war`)
 
-- IDE-specific αρχεία (.idea/, .vscode/settings.json, *.iml)
+- Build directories (`target/`, `bin/`, `build/`)
 
-- System αρχεία (.DS_Store, Thumbs.db)
+- IDE-specific files (`.idea/`, `.vscode/settings.json`, `*.iml`)
 
-- Temporary αρχεία (*~, *.swp, *.tmp), log αρχεία (*.log)
+- System files (`.DS_Store`, `Thumbs.db`)
 
-- Πληροφορίες περιβάλλοντος (.env)
+- Temporary files (`*~`, `*.swp`, `*.tmp`) and log files (`*.log`)
 
-- Ευαίσθητες πληροφορίες (passwords, API keys, tokens)
+- Environment information (`.env`)
 
-Χρησιμοποιήστε το .gitignore για να αποκλείσετε αυτόματα αυτά τα αρχεία ή καταλόγους.
+- Sensitive information (passwords, API keys, tokens)
 
-**ΣΗΜΑΝΤΙΚΟ:** Αν κάνατε commit ευαίσθητα δεδομένα κατά λάθος: Αφαιρέστε αμέσως το αρχείο από το tracking με git rm --cached \<αρχείο\>, κάντε νέο commit, και αλλάξτε αμέσως τα credentials που εκτέθηκαν. Τα δεδομένα παραμένουν ορατά στο ιστορικό ακόμα και μετά τη διαγραφή — επικοινωνήστε με τον διδάσκοντα αν χρειαστείτε βοήθεια.
+Use `.gitignore` to exclude these files or directories automatically.
 
-# Στρατηγικές Branching
+**IMPORTANT:** If you accidentally commit sensitive data, immediately stop tracking the file with `git rm --cached <file>`, create a new commit, and immediately change the exposed credentials. The data remains visible in the history even after deletion—contact your instructor if you need help.
 
-Τα branches σας επιτρέπουν να εργάζεστε σε ανεξάρτητα κομμάτια κώδικα χωρίς να επηρεάζετε την «επίσημη» έκδοση του project σας. Κρατήστε το branching απλό αλλά δομημένο.
+# Branching Strategies
 
-## Κατανοώντας τα Branches
+Branches allow you to work on independent parts of the code without affecting the “official” version of your project. Keep your branching approach simple but structured.
 
-Το main branch είναι το προεπιλεγμένο branch (συνήθως main ή master). Πρέπει πάντα να περιέχει λειτουργικό, σταθερό κώδικα — είναι η «επίσημη» έκδοση του project από την οποία συνήθως προέρχονται οι υποβολές εργασιών.
+## Understanding Branches
 
-Μπορείτε να δημιουργήσετε καινούρια branches για την ανάπτυξη νέων χαρακτηριστικών ή διορθώσεων, είναι απομονωμένα από το main και γίνονται merge πίσω σε αυτό όταν ολοκληρωθούν.
+The main branch is the default branch (usually `main` or `master`). It should always contain working, stable code—it is the “official” version of the project from which assignments are usually submitted.
 
-## Πότε να Χρησιμοποιήσετε Branches
+You can create new branches to develop new features or fixes. They are isolated from `main` and merged back into it when they are complete.
 
-**Για ατομικά projects:** Χρησιμοποιήστε branches όταν εργάζεστε σε ένα απαιτητικό κομμάτι που μπορεί να χρειαστεί αρκετό χρόνο, όταν πειραματίζεστε με διαφορετικές προσεγγίσεις, ή όταν κάνετε σημαντικές αλλαγές στον κώδικά σας (code refactoring).
+## When to Use Branches
 
-**Για ομαδικά projects (ΣΗΜΑΝΤΙΚΟ):** Κάθε μέλος εργάζεται στην ανατεθειμένη εργασία του σε ξεχωριστό branch. Αυτό αποτρέπει συγκρούσεις (conflicts) από ταυτόχρονη επεξεργασία και επιτρέπει έλεγχο (code review) πριν τη συνένωση (merge).
+**For individual projects:** Use branches when working on a challenging component that may take considerable time, when experimenting with different approaches, or when making significant changes to your code (code refactoring).
 
-## Ονοματολογία Branches
+**For group projects (IMPORTANT):** Each member works on their assigned task in a separate branch. This prevents merge conflicts caused by simultaneous editing and allows code review before merging.
 
-Χρησιμοποιήστε περιγραφικά ονόματα με παύλες:
+## Branch Naming
 
-- Καλά ονόματα: feature/user-authentication, feature/add-search-function, fix/null-pointer-bug, refactor/database-layer
+Use descriptive names with hyphens:
 
-- Κακά ονόματα: test, new, mybranch, fix
+- Good names: `feature/user-authentication`, `feature/add-search-function`, `fix/null-pointer-bug`, `refactor/database-layer`
 
-## Ροή Εργασίας με Branches
+- Bad names: `test`, `new`, `mybranch`, `fix`
 
-1. Δημιουργία και μετάβαση σε νέο branch
+## Branch Workflow
 
-2. Εργασία στο branch, κάντε commits κανονικά
+1. Create and switch to a new branch
 
-3. Push του branch στο GitHub
+2. Work on the branch and commit as usual
 
-4. Μεταβείτε στο main και κάντε merge. Σε ομαδικές εργασίες, αυτό γίνεται συνήθως μέσω Pull Request (βλέπε Κεφ. 6)
+3. Push the branch to GitHub
 
-5. Διαγραφή branch μετά το merge
+4. Switch to `main` and merge. For group assignments, this is usually done through a pull request (see Chapter 5)
 
-## Διαχείριση και Πρόληψη Merge Conflicts
+5. Delete the branch after merging
 
-Τα conflicts συμβαίνουν όταν οι ίδιες γραμμές τροποποιούνται σε διαφορετικά branches. Για να τα αποφύγετε, εργαστείτε σε διαφορετικά αρχεία/modules όποτε είναι δυνατόν, ανακοινώστε στην ομάδα ποια αρχεία θα τροποποιήσετε, κάνετε συχνό git pull από το main πριν ξεκινήσετε εργασία και κρατήστε τα branches βραχύβια — κάντε merge γρήγορα.
+## Managing and Preventing Merge Conflicts
 
-**Όταν το VS Code εμφανίζει conflicts:**
+Merge conflicts occur when the same lines are modified in different branches. To avoid them, work on different files or modules whenever possible, tell the team which files you will modify, run `git pull` from `main` frequently before starting work, and keep branches short-lived—merge them promptly.
 
-1. Ανοίξτε το αρχείο με conflict
+**When VS Code displays merge conflicts:**
 
-2. Το VS Code επισημαίνει τα conflict markers
+1. Open the file containing the conflict
 
-3. Επιλέξτε «Accept Current Change», «Accept Incoming Change» ή «Accept Both Changes» — ή επεξεργαστείτε εσείς τον κώδικα
+2. VS Code highlights the conflict markers
 
-4. Αποθηκεύστε το αρχείο
+3. Select “Accept Current Change,” “Accept Incoming Change,” or “Accept Both Changes”—or edit the code yourself
 
-5. Κάντε stage και commit το resolved αρχείο
+4. Save the file
 
-# Οργάνωση Repository
+5. Stage and commit the resolved file
 
-Τα καλά οργανωμένα repositories είναι πιο εύκολα στην πλοήγηση, κατανόηση και συντήρηση. Οργανώστε τα αρχεία λογικά ανά τύπο και σκοπό (π.χ. src/, tests/, docs/, .gitignore, README.md).
+# Repository Organization
 
-## Απαραίτητα Αρχεία
+Well-organized repositories are easier to navigate, understand, and maintain. Organize files logically by type and purpose (e.g., `src/`, `tests/`, `docs/`, `.gitignore`, `README.md`).
 
-**README.md** (υποχρεωτικό σε όλες τις εργασίες). Πρέπει να περιλαμβάνει:
+## Required Files
 
-- Τίτλο και περιγραφή του project
+**`README.md`** (required for all assignments). It must include:
 
-- Οδηγίες εγκατάστασης/setup και εκτέλεσης
+- The project title and description
 
-- Requirements και dependencies
+- Installation/setup and execution instructions
 
-- Πληροφορίες δημιουργών (σε ομαδικές: περιγραφή συνεισφοράς κάθε μέλους)
+- Requirements and dependencies
 
-**.gitignore** (υποχρεωτικό σε όλες τις εργασίες) αποκλείει αυτόματα αρχεία που δεν ανήκουν στο version control.
+- Author information (for group assignments: a description of each member’s contribution)
 
-**Changelog.md** (υποχρεωτικό σε ομαδικές εργασίες). Καταγράφει τις αξιοσημείωτες αλλαγές ανά έκδοση/ημερομηνία, με την πιο πρόσφατη στην κορυφή.
+**`.gitignore`** (required for all assignments) automatically excludes files that do not belong in version control.
 
-## Δημιουργία .gitignore Αρχείων
+**`Changelog.md`** (required for group assignments). It records noteworthy changes by version/date, with the most recent entry at the top.
 
-Το GitHub παρέχει έτοιμα templates για κοινές γλώσσες προγραμματισμού. Παραδείγματα αρχείων που πρέπει να αποκλείονται:
+## Creating .gitignore Files
 
-- Compiled και executable αρχεία (*.class, *.jar, *.war, *.o, *.exe, *.out)
+GitHub provides ready-made templates for common programming languages. Examples of files that should be excluded:
 
-- Build directories (target/, bin/, build/, __pycache__/)
+- Compiled and executable files (`*.class`, `*.jar`, `*.war`, `*.o`, `*.exe`, `*.out`)
 
-- IDE αρχεία (.idea/, *.iml, .vscode/)
+- Build directories (`target/`, `bin/`, `build/`, `__pycache__/`)
 
-- System αρχεία (.DS_Store, Thumbs.db)
+- IDE files (`.idea/`, `*.iml`, `.vscode/`)
 
-- Virtual environments (venv/, env/)
+- System files (`.DS_Store`, `Thumbs.db`)
 
-- Jupyter checkpoints (.ipynb_checkpoints/)
+- Virtual environments (`venv/`, `env/`)
 
-## Συμβάσεις Ονοματολογίας
+- Jupyter checkpoints (`.ipynb_checkpoints/`)
 
-Ονόματα repositories: πεζά γράμματα, λέξεις διαχωρισμένες με παύλες, σύντομα και περιγραφικά. Παραδείγματα: data-structures-project, web-shop-application.
+## Naming Conventions
 
-Ονόματα αρχείων και φακέλων: να ακολουθούν τις συμβάσεις της γλώσσας (π.χ. CamelCase για Java classes, snake_case για Python), να είναι περιγραφικά, να αποφεύγουν κενά και να είναι συνεπή σε όλο το project.
+Repository names: use lowercase letters, separate words with hyphens, and keep names short and descriptive. Examples: `data-structures-project`, `web-shop-application`.
 
-# Οδηγίες Συνεργασίας
+File and folder names should follow the conventions of the language (e.g., CamelCase for Java classes, snake_case for Python), be descriptive, avoid spaces, and remain consistent throughout the project.
 
-Η αποτελεσματική συνεργασία απαιτεί σαφή επικοινωνία και συμφωνημένες διαδικασίες. Αυτή η ενότητα είναι κρίσιμη για την επιτυχία ομαδικών εργασιών.
+# Collaboration Guidelines
 
-## Επικοινωνία Ομάδας
+Effective collaboration requires clear communication and agreed-upon processes. This section is critical to the success of group assignments.
 
-Πριν ξεκινήσετε την εργασία: Συζητήστε και συμφωνήστε στη δομή του project, καταγράψτε τα modules/building blocks και στη βάση αυτών κατανείμετε αρμοδιότητες στα μέλη της ομάδας, ορίστε coding standards και καθορίστε κανάλια επικοινωνίας.
+## Team Communication
 
-Κατά τη διάρκεια της ανάπτυξης: Ανακοινώστε σε ποια αρχεία/modules εργάζεστε, ενημερώστε την ομάδα για πρόοδο και προβλήματα, και μοιραστείτε ανακαλύψεις και λύσεις.
+Before starting work: Discuss and agree on the project structure, identify the modules/building blocks and allocate responsibilities to team members accordingly, establish coding standards, and define communication channels.
 
-## Κατανομή Εργασίας
+During development: Announce which files/modules you are working on, update the team on progress and problems, and share discoveries and solutions.
 
-**Ανά feature/module (ΠΡΟΤΕΙΝΟΜΕΝΟ):**
+## Work Allocation
 
-- Κάθε μέλος υλοποιεί πλήρη features (π.χ. Άτομο Α: user authentication, Άτομο Β: data processing)
+**By feature/module (RECOMMENDED):**
 
-- Ελαχιστοποιεί merge conflicts
+- Each member implements complete features (e.g., Person A: user authentication, Person B: data processing)
 
-- Κάθε άτομο έχει ownership της περιοχής του
+- Minimizes merge conflicts
 
-**Ανά layer:**
+- Gives each person ownership of their area
 
-- Διαχωρισμός κατά τεχνική αρμοδιότητα (π.χ. Άτομο Α: UI, Άτομο Β: business logic, Άτομο Γ: database)
+**By layer:**
 
-- Απαιτεί προσεκτικό σχεδιασμό interfaces
+- Divide work by technical responsibility (e.g., Person A: UI, Person B: business logic, Person C: database)
 
-- Πιο πιθανά merge conflicts
+- Requires careful interface design
 
-## Ο Χρυσός Κανόνας της Συνεργασίας
+- Makes merge conflicts more likely
 
-Pull → Εργασία → Commit → Push
+## The Golden Rule of Collaboration
 
-1. Pull τις τελευταίες αλλαγές πριν ξεκινήσετε
+Pull → Work → Commit → Push
 
-2. Εργαστείτε στις εργασίες που σας ανατέθηκαν
+1. Pull the latest changes before you begin
 
-3. Συχνά Commit με περιγραφικά messages
+2. Work on your assigned tasks
 
-4. Push όταν ολοκληρώσετε μία λογική μονάδα
+3. Commit frequently with descriptive messages
 
-# Πρακτικές Code Review
+4. Push after completing a logical unit of work
 
-Το code review βελτιώνει την ποιότητα του κώδικα και βοηθά τα μέλη της ομάδας να μάθουν το ένα από το άλλο.
+# Code Review Practices
 
-## Δημιουργία Pull Requests
+Code review improves code quality and helps team members learn from one another.
 
-Όταν δημιουργείτε Pull Request (PR):
+## Creating Pull Requests
 
-- Γράψτε σαφή τίτλο που περιγράφει την αλλαγή
+When creating a pull request (PR):
 
-- Συμπληρώστε την περιγραφή με βάση το παρακάτω πλαίσιο
+- Write a clear title that describes the change
 
-- Συνδέστε με σχετικά Issues αν υπάρχουν
+- Complete the description using the template below
 
-- Ορίστε reviewers από την ομάδα σας
+- Link relevant issues, if any
 
-Πλαίσιο περιγραφής PR:
+- Assign reviewers from your team
 
-1. Τι κάνει αυτό το PR: Σύντομη περιγραφή των αλλαγών
+PR description template:
 
-2. Γιατί χρειάζεται: Εξήγηση του προβλήματος που λύνεται
+1. What this PR does: Brief description of the changes
 
-3. Πώς υλοποιήθηκε: Σύντομη τεχνική επισκόπηση
+2. Why it is needed: Explanation of the problem being solved
 
-4. Έλεγχος: Πώς δοκιμάστηκε; Ποια σενάρια καλύφθηκαν;
+3. How it was implemented: Brief technical overview
 
-## Review Pull Requests
+4. Testing: How was it tested? Which scenarios were covered?
 
-Όταν κάνετε review κώδικα:
+## Reviewing Pull Requests
 
-- Διαβάστε πρώτα την περιγραφή για να κατανοήσετε το context
+When reviewing code:
 
-- Ελέγξτε ότι ο κώδικας ακολουθεί τις συμβάσεις του project
+- Read the description first to understand the context
 
-- Αναζητήστε πιθανά bugs ή edge cases
+- Check that the code follows the project conventions
 
-- Επιβεβαιώστε ότι η λογική είναι σωστή και αποδοτική
+- Look for potential bugs or edge cases
 
-Καλά review comments: «Η λογική φαίνεται σωστή, αλλά θα μπορούσαμε να την απλοποιήσουμε χρησιμοποιώντας τη built-in sort() αντί να υλοποιούμε τη δική μας.»
+- Confirm that the logic is correct and efficient
 
-Κακά review comments: «Αυτό είναι λάθος.», «Κακός κώδικας.»
+Good review comments: “The logic looks correct, but we could simplify it by using the built-in `sort()` instead of implementing our own.”
 
-## Απάντηση σε Review Feedback
+Bad review comments: “This is wrong.”, “Bad code.”
 
-Όταν λαμβάνετε feedback:
+## Responding to Review Feedback
 
-- Μην το παίρνετε προσωπικά — επικεντρωθείτε στη βελτίωση του κώδικα
+When receiving feedback:
 
-- Κάντε ερωτήσεις αν το feedback δεν είναι σαφές
+- Do not take it personally—focus on improving the code
 
-- Συζητήστε εναλλακτικές αν διαφωνείτε
+- Ask questions if the feedback is unclear
 
-- Κάντε τις ζητούμενες αλλαγές σε νέα commits
+- Discuss alternatives if you disagree
 
-## Checklist Πριν το Review
+- Make the requested changes in new commits
 
-Πριν ζητήσετε review, ελέγξτε:
+## Pre-Review Checklist
 
-1. Ο κώδικας μεταγλωττίζεται χωρίς σφάλματα
+Before requesting a review, check that:
 
-2. Όλα τα tests περνούν (αν υπάρχουν)
+1. The code compiles without errors
 
-3. Δεν υπάρχει debug code ή commented-out sections
+2. All tests pass (if any)
 
-4. Οι μεταβλητές και functions έχουν νοηματικά ονόματα
+3. There is no debug code or commented-out sections
 
-# Κριτήρια Αξιολόγησης Χρήσης GitHub
+4. Variables and functions have meaningful names
 
-Οι καλές πρακτικές που παρουσιάστηκαν στα προηγούμενα κεφάλαια δεν είναι απλώς συστάσεις, αποτελούν μέρος της αξιολόγησης των εργασιών. Η αξιολόγηση αποτυπώνει όχι μόνο το τελικό αποτέλεσμα αλλά και τη διαδικασία ανάπτυξης, καθώς αυτή αντικατοπτρίζει τον τρόπο εργασίας και τη συνέπεια στη χρήση του εργαλείου.
+# GitHub Usage Assessment Criteria
 
-Η χρήση του GitHub υποστηρίζει τη μαθησιακή διαδικασία και βοηθά στην καλύτερη οργάνωση, τεκμηρίωση και αξιολόγηση της εργασίας. Η συστηματική εφαρμογή των καλών πρακτικών αυτού του οδηγού αναμένεται να αποτελεί σταθερό μέρος της μεθοδολογίας εργασίας σας, τόσο στα ατομικά όσο και στα ομαδικά projects.
+The best practices presented in the preceding chapters are not merely recommendations; they form part of the assessment of assignments. The assessment considers not only the final result but also the development process, as it reflects your working methods and consistency in using the tool.
 
-## Γενικές Αρχές
+Using GitHub supports the learning process and helps improve the organization, documentation, and assessment of your work. You are expected to make the consistent application of the best practices in this guide a standard part of your working methodology in both individual and group projects.
 
-Κατά την αξιολόγηση λαμβάνονται υπόψιν η συστηματική χρήση του GitHub σε όλη τη διάρκεια της εργασίας, η καθαρότητα και η οργάνωση του repository, καθώς και η δυνατότητα να τεκμηριώνεται η πρόοδος μέσα από το ιστορικό αλλαγών.
+## General Principles
 
-Το commit history αποτελεί βασικό τεκμήριο της εργασίας που πραγματοποιήθηκε. Για τον λόγο αυτό, κάθε φοιτητής πρέπει να χρησιμοποιεί αποκλειστικά τον προσωπικό του λογαριασμό GitHub, ώστε να είναι δυνατή η σωστή απόδοση της συνεισφοράς του.
+The assessment takes into account the consistent use of GitHub throughout the assignment, the cleanliness and organization of the repository, and the ability to document progress through the change history.
 
-## Κριτήρια για Ατομικές Εργασίες
+The commit history is key evidence of the work performed. For this reason, each student must use only their personal GitHub account so that their contribution can be attributed correctly.
 
-Στις ατομικές εργασίες αξιολογείται κατά πόσο ο φοιτητής ακολουθεί βασικές καλές πρακτικές version control:
+## Criteria for Individual Assignments
 
-- **Συνέπεια commits**: τακτικά commits με σημαντικά επιτεύγματα/milestones που αποδεικνύουν σταδιακή εξέλιξη της εργασίας και όχι υποβολή μεγάλου όγκου περιεχομένου λίγο πριν την προθεσμία
+Individual assignments are assessed on the extent to which the student follows fundamental version control best practices:
 
-- **Ποιότητα commit messages:** αυτό-επεξηγηματικά/περιγραφικά μηνύματα που εξηγούν τη φύση της αλλαγής
+- **Commit consistency:** regular commits at significant achievements/milestones that demonstrate the gradual development of the work, rather than the submission of a large amount of content shortly before the deadline
 
-- **Οργάνωση repository:** λογική δομή φακέλων, σωστή ονοματοδοσία αρχείων, αποφυγή περιττών ή ευαίσθητων αρχείων
+- **Commit message quality:** self-explanatory, descriptive messages that explain the nature of the change
 
-- **Τεκμηρίωση:** ύπαρξη και ποιότητα README.md και .gitignore
+- **Repository organization:** logical folder structure, correct file naming, and avoidance of unnecessary or sensitive files
 
-- **Χρήση branches** (όπου εφαρμόζεται): αξιολογείται θετικά σε πιο σύνθετες εργασίες
+- **Documentation:** presence and quality of `README.md` and `.gitignore`
 
-## Κριτήρια για Ομαδικές Εργασίες
+- **Use of branches** (where applicable): viewed positively in more complex assignments
 
-Στις ομαδικές εργασίες ισχύουν όλα τα παραπάνω ατομικά κριτήρια για κάθε μέλος. Επιπλέον αξιολογούνται:
+## Criteria for Group Assignments
 
-- **Χρήση branches:** ορθή χρήση feature branches για επιμέρους ανάπτυξη
+All the individual criteria above apply to each member of a group assignment. The following are also assessed:
 
-- **Pull Requests και code review:** ελεγχόμενη ενσωμάτωση αλλαγών με τεκμηρίωση της διαδικασίας
+- **Use of branches:** correct use of feature branches for separate development work
 
-- **Συντονισμός:** ελάχιστα merge conflicts ως ένδειξη καλού σχεδιασμού και επικοινωνίας
+- **Pull requests and code review:** controlled integration of changes with documentation of the process
 
-- **Ισορροπημένη συμμετοχή:** ουσιαστική και διαρκής συνεισφορά από όλα τα μέλη. Εργασία συγκεντρωμένη σε ένα άτομο δεν ανταποκρίνεται στις προσδοκίες ομαδικής εργασίας
+- **Coordination:** minimal merge conflicts as an indication of good planning and communication
 
-- **Τεκμηρίωση κατανομής:** σαφής περιγραφή ρόλων στο README και στο Changelog
+- **Balanced participation:** meaningful and sustained contributions from all members. Work concentrated in one person does not meet the expectations for group work
 
-- **Τεκμήρια επικοινωνίας:** Issues, comments ή άλλα στοιχεία συνεργασίας μέσα στο GitHub
+- **Work allocation documentation:** clear description of roles in the `README` and `Changelog`
 
-## Ενδεικτικά Στοιχεία που Εξετάζονται
+- **Evidence of communication:** issues, comments, or other evidence of collaboration within GitHub
 
-| Κριτήριο Αξιολόγησης               | Ατομικές Εργασίες | Ομαδικές Εργασίες |
-|------------------------------------|:-----------------:|:-----------------:|
-| Συχνότητα και κατανομή commits     |        Ναι        |        Ναι        |
-| Ποιότητα commit messages           |        Ναι        |        Ναι        |
-| Οργάνωση και καθαρότητα repository |        Ναι        |        Ναι        |
-| Ύπαρξη και ποιότητα README.md      |        Ναι        |        Ναι        |
-| Σωστή χρήση .gitignore             |        Ναι        |        Ναι        |
-| Χρήση branches                     |    προαιρετικά    |        Ναι        |
-| Pull Requests και code review      |        Όχι        |        Ναι        |
-| Issues / comments / επικοινωνία    |        Όχι        |        Ναι        |
-| Ισορροπία συνεισφοράς μελών        |        Όχι        |        Ναι        |
-| Changelog και κατανομή ρόλων       |        Όχι        |        Ναι        |
+## Indicative Elements Assessed
 
-# Επίλογος
+| Assessment Criterion                | Individual Assignments | Group Assignments |
+|-------------------------------------|:----------------------:|:-----------------:|
+| Commit frequency and distribution   |          Yes           |        Yes        |
+| Commit message quality              |          Yes           |        Yes        |
+| Repository organization and hygiene |          Yes           |        Yes        |
+| Presence and quality of `README.md` |          Yes           |        Yes        |
+| Correct use of `.gitignore`         |          Yes           |        Yes        |
+| Use of branches                     |        Optional        |        Yes        |
+| Pull requests and code review       |           No           |        Yes        |
+| Issues / comments / communication   |           No           |        Yes        |
+| Balance of member contributions     |           No           |        Yes        |
+| Changelog and role allocation       |           No           |        Yes        |
 
-Το GitHub είναι ένα ισχυρό εργαλείο που, όταν χρησιμοποιείται αποτελεσματικά, ενισχύει τη μαθησιακή σας εμπειρία, βελτιώνει τη συνεργασία με τους συμφοιτητές σας και αναπτύσσει επαγγελματικές δεξιότητες. Οι πρακτικές που περιγράφονται σε αυτόν τον οδηγό αντιπροσωπεύουν industry-standard προσεγγίσεις που χρησιμοποιούνται από επαγγελματικές ομάδες ανάπτυξης λογισμικού παγκοσμίως.
+# Conclusion
 
-Θυμηθείτε:
+GitHub is a powerful tool that, when used effectively, enhances your learning experience, improves collaboration with your fellow students, and develops professional skills. The practices described in this guide represent industry-standard approaches used by professional software development teams worldwide.
 
-1. Ξεκινήστε με τα βασικά και υιοθετήστε σταδιακά πιο προηγμένες πρακτικές
+Remember:
 
-2. Η συνέπεια είναι πιο σημαντική από την τελειότητα
+1. Start with the basics and gradually adopt more advanced practices
 
-3. Μάθετε από τα λάθη — αποτελούν μέρος της μαθησιακής διαδικασίας
+2. Consistency is more important than perfection
 
-4. Βοηθήστε τους συμφοιτητές σας να μάθουν καλές πρακτικές
+3. Learn from mistakes—they are part of the learning process
 
-5. Συνεχίστε να βελτιώνετε τις δεξιότητές σας καθώς προοδεύετε
+4. Help your fellow students learn best practices
 
-Χρήσιμοι σύνδεσμοι:
+5. Continue improving your skills as you progress
 
-- Επίσημη τεκμηρίωση Git: <https://git-scm.com/doc>
+Useful links:
 
-- Οδηγοί GitHub: <https://guides.github.com>
+- Official Git documentation: <https://git-scm.com/doc>
+
+- GitHub Guides: <https://guides.github.com>
 
 - Pro Git book: <https://git-scm.com/book/en/v2>
 
-Καλή επιτυχία στα projects σας!
+Good luck with your projects!
