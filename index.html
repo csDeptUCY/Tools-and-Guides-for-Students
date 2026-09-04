@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Βίντεο Οδηγιών</title>
+<style>
+  :root {
+    --bg: #f6f8fa;
+    --card-bg: #ffffff;
+    --border: #d0d7de;
+    --text: #1f2328;
+    --muted: #57606a;
+    --accent: #0969da;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 40px 20px;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+  }
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  header {
+    margin-bottom: 32px;
+  }
+  h1 {
+    font-size: 1.9rem;
+    margin-bottom: 8px;
+  }
+  .intro {
+    color: var(--muted);
+    font-size: 1rem;
+    max-width: 720px;
+  }
+  .video-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 24px;
+  }
+  .video-card h2 {
+    font-size: 1.25rem;
+    margin: 0 0 8px 0;
+  }
+  .video-card p {
+    color: var(--muted);
+    margin: 0 0 14px 0;
+  }
+  video {
+    width: 100%;
+    border-radius: 8px;
+    background: #000;
+    display: block;
+  }
+  footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+  footer a {
+    color: var(--accent);
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <h1>Βίντεο Οδηγιών</h1>
+    <p class="intro">
+      Σε αυτή τη σελίδα θα βρείτε σύντομα επεξηγηματικά βίντεο για τη χρήση του Git, του GitHub
+      και του Classroom50, καλές πρακτικές οργάνωσης και συνεργασίας σε projects, καθώς και τα
+      κριτήρια αξιολόγησης των εργασιών. Τα βίντεο παρουσιάζουν μόνο τις βασικές έννοιες.
+      Για τις πλήρεις οδηγίες και κατευθύνσεις μελετήστε τους αντίστοιχους οδηγούς.
+    </p>
+  </header>
+
+  <section class="video-card">
+    <h2>Git, GitHub &amp; Classroom50</h2>
+    <p>Γενική εισαγωγή στα εργαλεία που θα χρησιμοποιήσετε στο μάθημα: τι είναι το Git, τι είναι
+      το GitHub και πώς λειτουργεί η πλατφόρμα Classroom50 για την παράδοση των εργασιών σας.</p>
+    <video controls preload="metadata">
+      <source src="https://raw.githubusercontent.com/csDeptUCY/Tools-and-Guides-for-Students/main/media/videos/Git_GitHub_Classroom50.mp4" type="video/mp4">
+      Ο browser σας δεν υποστηρίζει αναπαραγωγή βίντεο.
+    </video>
+  </section>
+
+  <section class="video-card">
+    <h2>Εισαγωγή στο GitHub</h2>
+    <p>Πρώτα βήματα στο GitHub: δημιουργία και δομή ενός repository, βασική πλοήγηση στο
+      περιβάλλον, και πώς να αποφεύγετε χαοτικά και μη κατανοητά ονόματα αρχείων και φακέλων.</p>
+    <video controls preload="metadata">
+      <source src="https://raw.githubusercontent.com/csDeptUCY/Tools-and-Guides-for-Students/main/media/videos/Eisagwgi_sto_GitHub.mp4" type="video/mp4">
+      Ο browser σας δεν υποστηρίζει αναπαραγωγή βίντεο.
+    </video>
+  </section>
+
+  <section class="video-card">
+    <h2>Καλές Πρακτικές Commit</h2>
+    <p>Πώς να διατηρείτε ένα project οργανωμένο και ασφαλές μέσα από σωστές πρακτικές commit:
+      πότε και πώς να κάνετε commit, τι περιλαμβάνει ένα καλό μήνυμα commit και πώς αποφεύγετε
+      απώλεια ή αλλοίωση δεδομένων.</p>
+    <video controls preload="metadata">
+      <source src="https://raw.githubusercontent.com/csDeptUCY/Tools-and-Guides-for-Students/main/media/videos/Kales_Praktikes_Commit.mp4" type="video/mp4">
+      Ο browser σας δεν υποστηρίζει αναπαραγωγή βίντεο.
+    </video>
+  </section>
+
+  <section class="video-card">
+    <h2>Κριτήρια Αξιολόγησης</h2>
+    <p>Ανάλυση των κριτηρίων με τα οποία αξιολογούνται οι εργασίες: τι εξετάζεται, πώς
+      κατανέμεται η βαθμολογία και ποια σημεία χρήζουν ιδιαίτερης προσοχής.</p>
+    <video controls preload="metadata">
+      <source src="https://raw.githubusercontent.com/csDeptUCY/Tools-and-Guides-for-Students/main/media/videos/Kritiria_Aksiologisis.mp4" type="video/mp4">
+      Ο browser σας δεν υποστηρίζει αναπαραγωγή βίντεο.
+    </video>
+  </section>
+
+  <section class="video-card">
+    <h2>Συνεργασία στο GitHub</h2>
+    <p>Πώς συνεργάζεστε αποτελεσματικά σε κοινό repository: branches, pull requests και κυρίως
+      πώς αποφεύγονται τα merge conflicts όταν πολλά μέλη της ομάδας δουλεύουν ταυτόχρονα.</p>
+    <video controls preload="metadata">
+      <source src="https://raw.githubusercontent.com/csDeptUCY/Tools-and-Guides-for-Students/main/media/videos/Sinergasia_sto_GitHub.mp4" type="video/mp4">
+      Ο browser σας δεν υποστηρίζει αναπαραγωγή βίντεο.
+    </video>
+  </section>
+
+  <footer>
+    <p>📺 Περισσότερα βίντεο από το επίσημο κανάλι του GitHub θα βρείτε στη λίστα αναπαραγωγής:
+      <a href="https://www.youtube.com/playlist?list=PL0lo9MOBetEFcp4SCWinBdpml9B2U25-f" target="_blank" rel="noopener">YouTube Playlist</a>
+    </p>
+  </footer>
+
+</div>
+</body>
+</html>
