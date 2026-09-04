@@ -20,10 +20,10 @@
 
 - **[Γενικές Οδηγίες Θεωρητικών Εργασιών και Διαγνωστικών (ελληνικά)](./guides/Odigies_Theoritikwn_Ergasiwn.md)** — Κανόνες μορφοποίησης και παράδοσης χειρόγραφων λύσεων, κριτήρια αξιολόγησης και οδηγίες για την ορθή αναφορά πηγών και εργαλείων ΤΝ.
 
-- **[Theoretical Assignment Guidelines (english)](./guides/Theoretical_Assignment_Guidelines.md)** — Κανόνες μορφοποίησης και παράδοσης χειρόγραφων λύσεων, κριτήρια αξιολόγησης και οδηγίες για την ορθή αναφορά πηγών και εργαλείων ΤΝ.
+- **[General Guidelines for Theoretical Assignments and Quizzes (english)](./guides/Theoretical_Assignment_Guidelines.md)** — Formatting and submission rules for handwritten solutions, assessment criteria, and guidelines for the proper citation of sources and AI tools.
 
 - **[Γενικές Οδηγίες και Παράμετροι Αξιολόγησης Προγραμματιστικών Εργασιών](./guides/Odigies_Programmatistikwn_Ergasiwn.md)** — Κανόνες σχολιασμού και δομής κώδικα, ορθότητας λειτουργίας, επιτρεπόμενων τεχνικών, χρήσης GitHub/Classroom 50 και τα κριτήρια βαθμολόγησης προγραμματιστικών εργασιών.
 
-- **[Programming Assignment Guidelines (english)](./guides/Programming_Assignment_Guidelines.md)** — Κανόνες σχολιασμού και δομής κώδικα, ορθότητας λειτουργίας, επιτρεπόμενων τεχνικών, χρήσης GitHub/Classroom 50 και τα κριτήρια βαθμολόγησης προγραμματιστικών εργασιών.
+- **[General Guidelines and Assessment Criteria for Programming Assignments (english)](./guides/Programming_Assignment_Guidelines.md)** — Code commenting and structure rules, functional correctness, permitted techniques, use of GitHub Classroom 50, and grading criteria for programming assignments.
 
 
