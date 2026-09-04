@@ -224,7 +224,7 @@ You can install [Remote – SSH](https://marketplace.visualstudio.com/items?item
 
 Go to VSCode Extensions and search for Remote – SSH, and install it.
 
-![Installing the Remote SSH extension](media/images/image1.png)
+![Installing the Remote SSH extension](../media/images/image1.png)
 
 Go to the Remote – SSH tab (red square in the following figure), and in SSH, click on + to add a new remote connection as for example:
 
