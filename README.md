@@ -8,7 +8,7 @@
 
 ## Οδηγοί
 
-Στον φάκελο guides/ θα βρείτε τους ακόλουθους οδηγούς:
+Στον φάκελο guides θα βρείτε τους ακόλουθους οδηγούς:
 
 - **[Περιβάλλον Ανάπτυξης: VS Code και Git](./guides/Perivallon_Anaptiksis_VSCode_Git.md)** — Οδηγίες εγκατάστασης και ρύθμισης του VS Code για Java, C και Python, καθώς και βασική χρήση του Git μέσα από το VS Code.<br/>| **English version: [Development Environment: VS Code and Git](./guides/Development_Environment_VSCode_Git.md)**
 
