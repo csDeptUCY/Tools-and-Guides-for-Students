@@ -1,6 +1,6 @@
-# General Guidelines for Theoretical Assignments and Diagnostic Assessments
+# General Guidelines for Theoretical Assignments and Quizzes
 
-These guidelines apply to all theoretical assignments and diagnostic assessments. Each student is required to comply with them, and compliance is taken into account in grading. Solving exercises is the most effective way to consolidate your understanding of the course material; devote the necessary time to them and do not leave the assignment until the last minute.
+These guidelines apply to all theoretical assignments and quizzes. Each student is required to comply with them, and compliance is taken into account in grading. Solving exercises is the most effective way to consolidate your understanding of the course material; devote the necessary time to them and do not leave the assignment until the last minute.
 
 ---
 
