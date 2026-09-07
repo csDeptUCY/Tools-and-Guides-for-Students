@@ -88,10 +88,13 @@
     padding: 2px 10px;
     border-radius: 999px;
   }
+  /* Όλες οι κάρτες βίντεο έχουν ίσο πλάτος στήλης — καμία κάρτα δεν καταλαμβάνει
+     παραπάνω χώρο από τις άλλες. */
   .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 20px;
+    align-items: start;
   }
   .video-card {
     background: var(--card-bg);
@@ -100,10 +103,6 @@
     padding: 18px;
     display: flex;
     flex-direction: column;
-  }
-  .video-card.featured {
-    grid-column: 1 / -1;
-    border-color: var(--accent);
   }
   .badge {
     display: inline-block;
@@ -126,12 +125,28 @@
     margin: 0 0 12px 0;
     font-size: 0.92rem;
   }
-  video {
+
+  /* Κοινό μέγεθος πλαισίου για όλα τα βίντεο, ανεξάρτητα από την ανάλυση του αρχικού αρχείου.
+     Το requestFullscreen() στο native player εξακολουθεί να χρησιμοποιεί την πλήρη ανάλυση
+     του βίντεο όταν ο χρήστης πατά το εικονίδιο fullscreen. */
+  .video-frame {
+    position: relative;
     width: 100%;
-    border-radius: 8px;
+    aspect-ratio: 16 / 9;
     background: #000;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .video-frame video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     display: block;
   }
+
   footer {
     margin-top: 40px;
     padding-top: 20px;
@@ -155,6 +170,7 @@
       κριτήρια αξιολόγησης. Το πρώτο βίντεο είναι <strong>μεγαλύτερο και συνοπτικά πολυθεματικό</strong>·
       τα υπόλοιπα είναι <strong>μικρότερα και εξειδικευμένα</strong> σε ένα θέμα το καθένα.
       Παρουσιάζουν μόνο τις βασικές έννοιες — για τις πλήρεις οδηγίες μελετήστε τους αντίστοιχους οδηγούς.
+      Πατήστε το εικονίδιο πλήρους οθόνης στο player για μεγαλύτερη προβολή.
     </p>
   </header>
 
@@ -173,26 +189,30 @@
     </div>
     <div class="grid">
 
-      <div class="video-card featured">
+      <div class="video-card">
         <span class="badge">Ξεκινήστε από εδώ</span>
         <h3>Git, GitHub &amp; Classroom50</h3>
         <p>Γενική εισαγωγή στα εργαλεία που θα χρησιμοποιήσετε στο μάθημα: τι είναι το Git, τι
           είναι το GitHub και πώς λειτουργεί η πλατφόρμα Classroom50, με συνοπτική αναφορά σε
           commits, τρόπο εργασίας και οργάνωση αρχείων.</p>
-        <video controls preload="metadata">
-          <source src="https://raw.githubusercontent.com/csDeptUCY/Tools-and-Guides-for-Students/main/media/videos/Git_GitHub_Classroom50.mp4" type="video/mp4">
-          Ο browser σας δεν υποστηρίζει αναπαραγωγή βίντεο.
-        </video>
+        <div class="video-frame">
+          <video controls preload="metadata">
+            <source src="https://raw.githubusercontent.com/csDeptUCY/Tools-and-Guides-for-Students/main/media/videos/Episkopisi_GitHub_Ergaleion.mp4" type="video/mp4">
+            Ο browser σας δεν υποστηρίζει αναπαραγωγή βίντεο.
+          </video>
+        </div>
       </div>
 
       <div class="video-card">
         <h3>Επισκόπηση GitHub Εργαλείων</h3>
         <p>Πιο εστιασμένη παρουσίαση των τριών βασικών εργαλείων (Git, GitHub, Classroom50) και
           του ρόλου του καθενός στη ροή εργασίας σας.</p>
-        <video controls preload="metadata">
-          <source src="https://raw.githubusercontent.com/csDeptUCY/Tools-and-Guides-for-Students/main/media/videos/Episkopisi_GitHub_Ergaleion.mp4" type="video/mp4">
-          Ο browser σας δεν υποστηρίζει αναπαραγωγή βίντεο.
-        </video>
+        <div class="video-frame">
+          <video controls preload="metadata">
+            <source src="https://raw.githubusercontent.com/csDeptUCY/Tools-and-Guides-for-Students/main/media/videos/Git_GitHub_Classroom50.mp4" type="video/mp4">
+            Ο browser σας δεν υποστηρίζει αναπαραγωγή βίντεο.
+          </video>
+        </div>
       </div>
 
     </div>
@@ -210,30 +230,36 @@
         <p>Πώς να διατηρείτε ένα project οργανωμένο και ασφαλές μέσα από σωστές πρακτικές commit:
           πότε και πώς να κάνετε commit, τι περιλαμβάνει ένα καλό μήνυμα commit και πώς αποφεύγετε
           απώλεια ή αλλοίωση δεδομένων.</p>
-        <video controls preload="metadata">
-          <source src="https://raw.githubusercontent.com/csDeptUCY/Tools-and-Guides-for-Students/main/media/videos/Kales_Praktikes_Commit.mp4" type="video/mp4">
-          Ο browser σας δεν υποστηρίζει αναπαραγωγή βίντεο.
-        </video>
+        <div class="video-frame">
+          <video controls preload="metadata">
+            <source src="https://raw.githubusercontent.com/csDeptUCY/Tools-and-Guides-for-Students/main/media/videos/Kales_Praktikes_Commit.mp4" type="video/mp4">
+            Ο browser σας δεν υποστηρίζει αναπαραγωγή βίντεο.
+          </video>
+        </div>
       </div>
 
       <div class="video-card">
         <h3>Οργάνωση Repository</h3>
         <p>Ποια είναι τα απαραίτητα αρχεία ενός repository (README.md, .gitignore, Changelog.md),
           τι πρέπει να περιέχει το καθένα, και βασικές συμβάσεις ονοματολογίας.</p>
-        <video controls preload="metadata">
-          <source src="https://raw.githubusercontent.com/csDeptUCY/Tools-and-Guides-for-Students/main/media/videos/Organosi_Repository.mp4" type="video/mp4">
-          Ο browser σας δεν υποστηρίζει αναπαραγωγή βίντεο.
-        </video>
+        <div class="video-frame">
+          <video controls preload="metadata">
+            <source src="https://raw.githubusercontent.com/csDeptUCY/Tools-and-Guides-for-Students/main/media/videos/Organosi_Repository.mp4" type="video/mp4">
+            Ο browser σας δεν υποστηρίζει αναπαραγωγή βίντεο.
+          </video>
+        </div>
       </div>
 
       <div class="video-card">
         <h3>Branching</h3>
         <p>Τι είναι το main branch, πότε δημιουργούμε νέο branch, σωστή ονοματολογία branches, και
           η βασική ροή εργασίας με branches.</p>
-        <video controls preload="metadata">
-          <source src="https://raw.githubusercontent.com/csDeptUCY/Tools-and-Guides-for-Students/main/media/videos/Branching.mp4" type="video/mp4">
-          Ο browser σας δεν υποστηρίζει αναπαραγωγή βίντεο.
-        </video>
+        <div class="video-frame">
+          <video controls preload="metadata">
+            <source src="https://raw.githubusercontent.com/csDeptUCY/Tools-and-Guides-for-Students/main/media/videos/Branching.mp4" type="video/mp4">
+            Ο browser σας δεν υποστηρίζει αναπαραγωγή βίντεο.
+          </video>
+        </div>
       </div>
 
     </div>
@@ -250,20 +276,24 @@
         <h3>Οδηγίες Συνεργασίας</h3>
         <p>Πώς επικοινωνεί και κατανέμει εργασίες μια ομάδα πριν και κατά τη διάρκεια της
           ανάπτυξης, και ο Χρυσός Κανόνας της Συνεργασίας: Pull → Εργασία → Commit → Push.</p>
-        <video controls preload="metadata">
-          <source src="https://raw.githubusercontent.com/csDeptUCY/Tools-and-Guides-for-Students/main/media/videos/Odigies_Sinergasias.mp4" type="video/mp4">
-          Ο browser σας δεν υποστηρίζει αναπαραγωγή βίντεο.
-        </video>
+        <div class="video-frame">
+          <video controls preload="metadata">
+            <source src="https://raw.githubusercontent.com/csDeptUCY/Tools-and-Guides-for-Students/main/media/videos/Odigies_Sinergasias.mp4" type="video/mp4">
+            Ο browser σας δεν υποστηρίζει αναπαραγωγή βίντεο.
+          </video>
+        </div>
       </div>
 
       <div class="video-card">
         <h3>Pull Requests &amp; Code Review</h3>
         <p>Πώς δημιουργείτε ένα Pull Request με σωστή περιγραφή, πώς κάνετε εποικοδομητικό code
           review, και πώς απαντάτε σε feedback.</p>
-        <video controls preload="metadata">
-          <source src="https://raw.githubusercontent.com/csDeptUCY/Tools-and-Guides-for-Students/main/media/videos/PullRequests_CodeReview.mp4" type="video/mp4">
-          Ο browser σας δεν υποστηρίζει αναπαραγωγή βίντεο.
-        </video>
+        <div class="video-frame">
+          <video controls preload="metadata">
+            <source src="https://raw.githubusercontent.com/csDeptUCY/Tools-and-Guides-for-Students/main/media/videos/PullRequests_CodeReview.mp4" type="video/mp4">
+            Ο browser σας δεν υποστηρίζει αναπαραγωγή βίντεο.
+          </video>
+        </div>
       </div>
 
     </div>
@@ -280,10 +310,12 @@
         <h3>Κριτήρια Αξιολόγησης</h3>
         <p>Ανάλυση των κριτηρίων με τα οποία αξιολογούνται οι εργασίες: τι εξετάζεται, πώς
           κατανέμεται η βαθμολογία και ποια σημεία χρήζουν ιδιαίτερης προσοχής.</p>
-        <video controls preload="metadata">
-          <source src="https://raw.githubusercontent.com/csDeptUCY/Tools-and-Guides-for-Students/main/media/videos/Kritiria_Aksiologisis.mp4" type="video/mp4">
-          Ο browser σας δεν υποστηρίζει αναπαραγωγή βίντεο.
-        </video>
+        <div class="video-frame">
+          <video controls preload="metadata">
+            <source src="https://raw.githubusercontent.com/csDeptUCY/Tools-and-Guides-for-Students/main/media/videos/Kritiria_Aksiologisis.mp4" type="video/mp4">
+            Ο browser σας δεν υποστηρίζει αναπαραγωγή βίντεο.
+          </video>
+        </div>
       </div>
 
     </div>
