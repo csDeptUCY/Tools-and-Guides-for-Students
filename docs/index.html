@@ -12,6 +12,7 @@
     --text: #1f2328;
     --muted: #57606a;
     --accent: #0969da;
+    --accent-soft: #ddf4ff;
   }
   * { box-sizing: border-box; }
   body {
@@ -23,11 +24,11 @@
     line-height: 1.6;
   }
   .container {
-    max-width: 860px;
+    max-width: 1080px;
     margin: 0 auto;
   }
   header {
-    margin-bottom: 32px;
+    margin-bottom: 28px;
   }
   h1 {
     font-size: 1.9rem;
@@ -36,22 +37,94 @@
   .intro {
     color: var(--muted);
     font-size: 1rem;
-    max-width: 720px;
+    max-width: 760px;
+  }
+  .intro strong {
+    color: var(--text);
+  }
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 24px 0 32px 0;
+  }
+  .filter-btn {
+    border: 1px solid var(--border);
+    background: var(--card-bg);
+    color: var(--text);
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+  }
+  .filter-btn:hover {
+    border-color: var(--accent);
+  }
+  .filter-btn.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+  .category {
+    margin-bottom: 40px;
+  }
+  .category-header {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--border);
+  }
+  .category-header h2 {
+    font-size: 1.25rem;
+    margin: 0;
+  }
+  .category-header .count {
+    font-size: 0.8rem;
+    color: var(--muted);
+    background: var(--accent-soft);
+    padding: 2px 10px;
+    border-radius: 999px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
   }
   .video-card {
     background: var(--card-bg);
     border: 1px solid var(--border);
     border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 24px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
   }
-  .video-card h2 {
-    font-size: 1.25rem;
+  .video-card.featured {
+    grid-column: 1 / -1;
+    border-color: var(--accent);
+  }
+  .badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 2px 8px;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    width: fit-content;
+  }
+  .video-card h3 {
+    font-size: 1.05rem;
     margin: 0 0 8px 0;
   }
   .video-card p {
     color: var(--muted);
-    margin: 0 0 14px 0;
+    margin: 0 0 12px 0;
+    font-size: 0.92rem;
   }
   video {
     width: 100%;
@@ -75,72 +148,175 @@
 <div class="container">
 
   <header>
-    <h1>Σύντομα Επεξηγηματικά Βίντεο Οδηγιών</h1>
+    <h1>Βίντεο Οδηγιών</h1>
     <p class="intro">
       Σε αυτή τη σελίδα θα βρείτε σύντομα επεξηγηματικά βίντεο για τη χρήση του Git, του GitHub
-      και του Classroom50, καλές πρακτικές οργάνωσης και συνεργασίας σε projects, καθώς και τα
-      κριτήρια αξιολόγησης των εργασιών. Τα βίντεο παρουσιάζουν μόνο τις βασικές έννοιες.
-      Για τις πλήρεις οδηγίες και κατευθύνσεις μελετήστε τους αντίστοιχους οδηγούς.
+      και του Classroom50, καλές πρακτικές ανάπτυξης, συνεργασία σε ομαδικές εργασίες και τα
+      κριτήρια αξιολόγησης. Το πρώτο βίντεο είναι <strong>μεγαλύτερο και συνοπτικά πολυθεματικό</strong>·
+      τα υπόλοιπα είναι <strong>μικρότερα και εξειδικευμένα</strong> σε ένα θέμα το καθένα.
+      Παρουσιάζουν μόνο τις βασικές έννοιες — για τις πλήρεις οδηγίες μελετήστε τους αντίστοιχους οδηγούς.
     </p>
   </header>
 
-  <section class="video-card">
-    <h2>Git, GitHub &amp; Classroom50</h2>
-    <p>Γενική εισαγωγή στα εργαλεία που θα χρησιμοποιήσετε στο μάθημα: τι είναι το Git, τι είναι
-      το GitHub και πώς λειτουργεί η πλατφόρμα Classroom50 για την παράδοση των εργασιών σας.</p>
-    <video controls preload="metadata">
-      <source src="https://raw.githubusercontent.com/csDeptUCY/Tools-and-Guides-for-Students/main/media/videos/Git_GitHub_Classroom50.mp4" type="video/mp4">
-      Ο browser σας δεν υποστηρίζει αναπαραγωγή βίντεο.
-    </video>
+  <div class="filters" id="filters">
+    <button class="filter-btn active" data-filter="all">Όλα</button>
+    <button class="filter-btn" data-filter="intro">Εισαγωγή</button>
+    <button class="filter-btn" data-filter="practices">Καλές Πρακτικές Ανάπτυξης</button>
+    <button class="filter-btn" data-filter="collab">Συνεργασία Ομάδας</button>
+    <button class="filter-btn" data-filter="eval">Αξιολόγηση</button>
+  </div>
+
+  <section class="category" data-category="intro">
+    <div class="category-header">
+      <h2>Εισαγωγή</h2>
+      <span class="count">2 βίντεο</span>
+    </div>
+    <div class="grid">
+
+      <div class="video-card featured">
+        <span class="badge">Ξεκινήστε από εδώ</span>
+        <h3>Git, GitHub &amp; Classroom50</h3>
+        <p>Γενική εισαγωγή στα εργαλεία που θα χρησιμοποιήσετε στο μάθημα: τι είναι το Git, τι
+          είναι το GitHub και πώς λειτουργεί η πλατφόρμα Classroom50, με συνοπτική αναφορά σε
+          commits, τρόπο εργασίας και οργάνωση αρχείων.</p>
+        <video controls preload="metadata">
+          <source src="https://raw.githubusercontent.com/csDeptUCY/Tools-and-Guides-for-Students/main/media/videos/Git_GitHub_Classroom50.mp4" type="video/mp4">
+          Ο browser σας δεν υποστηρίζει αναπαραγωγή βίντεο.
+        </video>
+      </div>
+
+      <div class="video-card">
+        <h3>Επισκόπηση GitHub Εργαλείων</h3>
+        <p>Πιο εστιασμένη παρουσίαση των τριών βασικών εργαλείων (Git, GitHub, Classroom50) και
+          του ρόλου του καθενός στη ροή εργασίας σας.</p>
+        <video controls preload="metadata">
+          <source src="https://raw.githubusercontent.com/csDeptUCY/Tools-and-Guides-for-Students/main/media/videos/Episkopisi_GitHub_Ergaleion.mp4" type="video/mp4">
+          Ο browser σας δεν υποστηρίζει αναπαραγωγή βίντεο.
+        </video>
+      </div>
+
+    </div>
   </section>
 
-  <section class="video-card">
-    <h2>Εισαγωγή στο GitHub</h2>
-    <p>Πρώτα βήματα στο GitHub: δημιουργία και δομή ενός repository, βασική πλοήγηση στο
-      περιβάλλον, και πώς να αποφεύγετε χαοτικά και μη κατανοητά ονόματα αρχείων και φακέλων.</p>
-    <video controls preload="metadata">
-      <source src="https://raw.githubusercontent.com/csDeptUCY/Tools-and-Guides-for-Students/main/media/videos/Eisagwgi_sto_GitHub.mp4" type="video/mp4">
-      Ο browser σας δεν υποστηρίζει αναπαραγωγή βίντεο.
-    </video>
+  <section class="category" data-category="practices">
+    <div class="category-header">
+      <h2>Καλές Πρακτικές Ανάπτυξης</h2>
+      <span class="count">3 βίντεο</span>
+    </div>
+    <div class="grid">
+
+      <div class="video-card">
+        <h3>Καλές Πρακτικές Commit</h3>
+        <p>Πώς να διατηρείτε ένα project οργανωμένο και ασφαλές μέσα από σωστές πρακτικές commit:
+          πότε και πώς να κάνετε commit, τι περιλαμβάνει ένα καλό μήνυμα commit και πώς αποφεύγετε
+          απώλεια ή αλλοίωση δεδομένων.</p>
+        <video controls preload="metadata">
+          <source src="https://raw.githubusercontent.com/csDeptUCY/Tools-and-Guides-for-Students/main/media/videos/Kales_Praktikes_Commit.mp4" type="video/mp4">
+          Ο browser σας δεν υποστηρίζει αναπαραγωγή βίντεο.
+        </video>
+      </div>
+
+      <div class="video-card">
+        <h3>Οργάνωση Repository</h3>
+        <p>Ποια είναι τα απαραίτητα αρχεία ενός repository (README.md, .gitignore, Changelog.md),
+          τι πρέπει να περιέχει το καθένα, και βασικές συμβάσεις ονοματολογίας.</p>
+        <video controls preload="metadata">
+          <source src="https://raw.githubusercontent.com/csDeptUCY/Tools-and-Guides-for-Students/main/media/videos/Organosi_Repository.mp4" type="video/mp4">
+          Ο browser σας δεν υποστηρίζει αναπαραγωγή βίντεο.
+        </video>
+      </div>
+
+      <div class="video-card">
+        <h3>Branching</h3>
+        <p>Τι είναι το main branch, πότε δημιουργούμε νέο branch, σωστή ονοματολογία branches, και
+          η βασική ροή εργασίας με branches.</p>
+        <video controls preload="metadata">
+          <source src="https://raw.githubusercontent.com/csDeptUCY/Tools-and-Guides-for-Students/main/media/videos/Branching.mp4" type="video/mp4">
+          Ο browser σας δεν υποστηρίζει αναπαραγωγή βίντεο.
+        </video>
+      </div>
+
+    </div>
   </section>
 
-  <section class="video-card">
-    <h2>Καλές Πρακτικές Commit</h2>
-    <p>Πώς να διατηρείτε ένα project οργανωμένο και ασφαλές μέσα από σωστές πρακτικές commit:
-      πότε και πώς να κάνετε commit, τι περιλαμβάνει ένα καλό μήνυμα commit και πώς αποφεύγετε
-      απώλεια ή αλλοίωση δεδομένων.</p>
-    <video controls preload="metadata">
-      <source src="https://raw.githubusercontent.com/csDeptUCY/Tools-and-Guides-for-Students/main/media/videos/Kales_Praktikes_Commit.mp4" type="video/mp4">
-      Ο browser σας δεν υποστηρίζει αναπαραγωγή βίντεο.
-    </video>
+  <section class="category" data-category="collab">
+    <div class="category-header">
+      <h2>Συνεργασία Ομάδας</h2>
+      <span class="count">2 βίντεο</span>
+    </div>
+    <div class="grid">
+
+      <div class="video-card">
+        <h3>Οδηγίες Συνεργασίας</h3>
+        <p>Πώς επικοινωνεί και κατανέμει εργασίες μια ομάδα πριν και κατά τη διάρκεια της
+          ανάπτυξης, και ο Χρυσός Κανόνας της Συνεργασίας: Pull → Εργασία → Commit → Push.</p>
+        <video controls preload="metadata">
+          <source src="https://raw.githubusercontent.com/csDeptUCY/Tools-and-Guides-for-Students/main/media/videos/Odigies_Sinergasias.mp4" type="video/mp4">
+          Ο browser σας δεν υποστηρίζει αναπαραγωγή βίντεο.
+        </video>
+      </div>
+
+      <div class="video-card">
+        <h3>Pull Requests &amp; Code Review</h3>
+        <p>Πώς δημιουργείτε ένα Pull Request με σωστή περιγραφή, πώς κάνετε εποικοδομητικό code
+          review, και πώς απαντάτε σε feedback.</p>
+        <video controls preload="metadata">
+          <source src="https://raw.githubusercontent.com/csDeptUCY/Tools-and-Guides-for-Students/main/media/videos/PullRequests_CodeReview.mp4" type="video/mp4">
+          Ο browser σας δεν υποστηρίζει αναπαραγωγή βίντεο.
+        </video>
+      </div>
+
+    </div>
   </section>
 
-  <section class="video-card">
-    <h2>Κριτήρια Αξιολόγησης</h2>
-    <p>Ανάλυση των κριτηρίων με τα οποία αξιολογούνται οι εργασίες: τι εξετάζεται, πώς
-      κατανέμεται η βαθμολογία και ποια σημεία χρήζουν ιδιαίτερης προσοχής.</p>
-    <video controls preload="metadata">
-      <source src="https://raw.githubusercontent.com/csDeptUCY/Tools-and-Guides-for-Students/main/media/videos/Kritiria_Aksiologisis.mp4" type="video/mp4">
-      Ο browser σας δεν υποστηρίζει αναπαραγωγή βίντεο.
-    </video>
-  </section>
+  <section class="category" data-category="eval">
+    <div class="category-header">
+      <h2>Αξιολόγηση</h2>
+      <span class="count">1 βίντεο</span>
+    </div>
+    <div class="grid">
 
-  <section class="video-card">
-    <h2>Συνεργασία στο GitHub</h2>
-    <p>Πώς συνεργάζεστε αποτελεσματικά σε κοινό repository: branches, pull requests και κυρίως
-      πώς αποφεύγονται τα merge conflicts όταν πολλά μέλη της ομάδας δουλεύουν ταυτόχρονα.</p>
-    <video controls preload="metadata">
-      <source src="https://raw.githubusercontent.com/csDeptUCY/Tools-and-Guides-for-Students/main/media/videos/Sinergasia_sto_GitHub.mp4" type="video/mp4">
-      Ο browser σας δεν υποστηρίζει αναπαραγωγή βίντεο.
-    </video>
+      <div class="video-card">
+        <h3>Κριτήρια Αξιολόγησης</h3>
+        <p>Ανάλυση των κριτηρίων με τα οποία αξιολογούνται οι εργασίες: τι εξετάζεται, πώς
+          κατανέμεται η βαθμολογία και ποια σημεία χρήζουν ιδιαίτερης προσοχής.</p>
+        <video controls preload="metadata">
+          <source src="https://raw.githubusercontent.com/csDeptUCY/Tools-and-Guides-for-Students/main/media/videos/Kritiria_Aksiologisis.mp4" type="video/mp4">
+          Ο browser σας δεν υποστηρίζει αναπαραγωγή βίντεο.
+        </video>
+      </div>
+
+    </div>
   </section>
 
   <footer>
-    <p>Περισσότερα βίντεο από το επίσημο κανάλι του GitHub θα βρείτε στη λίστα αναπαραγωγής:
+    <p>📺 Περισσότερα βίντεο από το επίσημο κανάλι του GitHub θα βρείτε στη λίστα αναπαραγωγής:
       <a href="https://www.youtube.com/playlist?list=PL0lo9MOBetEFcp4SCWinBdpml9B2U25-f" target="_blank" rel="noopener">YouTube Playlist</a>
     </p>
   </footer>
 
 </div>
+
+<script>
+  const buttons = document.querySelectorAll('.filter-btn');
+  const categories = document.querySelectorAll('.category');
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.getAttribute('data-filter');
+
+      categories.forEach(cat => {
+        if (filter === 'all' || cat.getAttribute('data-category') === filter) {
+          cat.style.display = '';
+        } else {
+          cat.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
+
 </body>
 </html>
