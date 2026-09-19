@@ -12,7 +12,7 @@
 
 - **[Περιβάλλον Ανάπτυξης: VS Code και Git](./guides/Perivallon_Anaptiksis_VSCode_Git.md)** — Οδηγίες εγκατάστασης και ρύθμισης του VS Code για Java, C και Python, καθώς και βασική χρήση του Git μέσα από το VS Code.<br/>| **English version: [Development Environment: VS Code and Git](./guides/english/Development_Environment_VSCode_Git.md)**
 
-- **[Πρόσβαση σε Εργασίες που χρησιμοποιούν GitHub](./guides/Prosvasi_se_Ergasies_to_GitHub.md)** — Οδηγίες πρόσβασης σε εργασίες που χρησιμποιούν GitHub. Δημιουργία λογαριασμού στο GitHub, αποδοχή εργασίας μέσω Classroom50 και κλωνοποιήση αποθετηρίου (clone repository) μέσω VSCode.<br/>| **English version: [Access Assignments using GitHub](./guides/english/Access_Assignments_using_GitHub.md)**
+- **[Πρόσβαση σε Εργασίες που χρησιμοποιούν GitHub](./guides/Prosvasi_se_Ergasies_sto_GitHub.md)** — Οδηγίες πρόσβασης σε εργασίες που χρησιμποιούν GitHub. Δημιουργία λογαριασμού στο GitHub, αποδοχή εργασίας μέσω Classroom50 και κλωνοποιήση αποθετηρίου (clone repository) μέσω VSCode.<br/>| **English version: [Access Assignments using GitHub](./guides/english/Access_Assignments_using_GitHub.md)**
 
 - **[Καλές Πρακτικές Χρήσης GitHub](./guides/GitHub_Kales_Praktikes.md)** — Καλές πρακτικές commit, στρατηγικές branching, οργάνωση repository, συνεργασία σε ομαδικές εργασίες, code review και κριτήρια αξιολόγησης χρήσης GitHub.<br/>| **English version: [GitHub Best Practices](./guides/english/GitHub_Best_Practices.md)**
 
