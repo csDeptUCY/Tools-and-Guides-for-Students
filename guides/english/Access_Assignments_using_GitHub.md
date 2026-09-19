@@ -41,7 +41,7 @@ Click the green button to accept. You are then taken to the profile page of the 
   <em><b>Figure 2.</b> Profile page of the <code>cs-department-ucy</code> organization after accepting the invitation.</em>
 </p>
 
-You are **not** allowed to create repositories inside this organization, so you can safely close this page. All assignment work starts from the Classroom50 platform.
+You should **never** try to create repositories inside this organization. So you can safely close this page. All assignment work starts from the Classroom50 platform (see next step).
 
 > Classroom50 is a free, open-source platform for distributing, managing, and grading programming assignments via GitHub.
 
